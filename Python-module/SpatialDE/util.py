@@ -1,3 +1,4 @@
+import numpy as np
 import scipy as sp
 from scipy import interpolate
 
@@ -28,8 +29,8 @@ def qvalue(pv, pi0=None):
     else:
         # evaluate pi0 for different lambdas
         pi0 = []
-        lam = sp.arange(0, 0.90, 0.01)
-        counts = sp.array([(pv > i).sum() for i in sp.arange(0, 0.9, 0.01)])
+        lam = np.arange(0, 0.90, 0.01)
+        counts = sp.array([(pv > i).sum() for i in np.arange(0, 0.9, 0.01)])
         for l in range(len(lam)):
             pi0.append(counts[l]/(m*(1-lam[l])))
 
